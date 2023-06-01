@@ -16,7 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from sgpapp.views import index,cadastro,gerenciar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('index/', index, name='index'),
+    path('cadastro/', cadastro, name='cadastro'),
+    path('gerenciar/', gerenciar, name='gerenciar'),
 ]
