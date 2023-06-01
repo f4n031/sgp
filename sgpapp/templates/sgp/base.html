@@ -6,32 +6,43 @@
 
     <div class="container-fluid">
         <div class="row">
-            <div class="col" style="height: 105px;">
-                <img src="/static/img/logo.png" alt="Logo">
+            <div class="container" style="height: 105px;">
+                <img height="100" src="/static/img/logo.png" alt="Logo">
             </div>
         </div>
     </div>
-    <div class="bg-primary fw-bold text-white">
-        <nav>
-            <ul class="nav justify-content-center">
-                <li class="nav-itemt">
-                    <a class="nav-link active text-light" href="http://127.0.0.1:8000/index/">Página Inicial</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="http://127.0.0.1:8000/cadastro/">Cadastrar Servidor</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-light" href="http://127.0.0.1:8000/gerenciar/">Gerenciar Folha</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 btn rounded-0 btn-danger" aria-current="page"
+                           href="http://127.0.0.1:8000/index/">Página
+                            Inicial</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 btn rounded-0 btn-danger" href="http://127.0.0.1:8000/signup/">Cadastrar
+                            Servidores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 btn rounded-0 btn-danger" href="http://127.0.0.1:8000/gerenciar/">Gerenciar
+                            Servidores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-2 btn rounded-0 btn-danger" href="http://127.0.0.1:8000/gerenciarfolha/">Gerenciar
+                            Folha</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
 </head>
 <body>
-
-{% block conteudo %}
-
-{% endblock conteudo %}
+<div class="container">
+    {% block content %}
+    {% endblock %}
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
         integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
