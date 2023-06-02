@@ -28,8 +28,11 @@ INSTALLED_APPS = [
     'sgpapp',
     "crispy_forms",
     "crispy_bootstrap5",
+    'localflavor',
 ]
-
+LOCALFLAVOR = [
+    'localflavor.br',
+]
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
 CRISPY_TEMPLATE_PACK = "bootstrap5"

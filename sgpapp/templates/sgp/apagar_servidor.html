@@ -1,0 +1,16 @@
+{% extends 'sgp/base.html' %}
+
+{% block content %}
+    <h2 class="text-center">Apagar Servidor</h2>
+    <div class="container mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border p-4">
+                <p>Tem certeza de que deseja apagar o servidor "{{ servidor.nome }}"?</p>
+                <form method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">Apagar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

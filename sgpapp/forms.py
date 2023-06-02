@@ -1,18 +1,16 @@
 from django import forms
-from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth.models import User
-from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Submit
+from .models import Cadastro
 
-class SignUpForm(UserCreationForm):
-    email = forms.EmailField(max_length=254, help_text='Informe um endereço de email válido.')
-
+class CadastroForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ('username', 'email', 'password1', 'password2')
+        model = Cadastro
+        fields = '__all__'
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.helper = FormHelper()
-        self.helper.form_method = 'post'
-        self.helper.add_input(Submit('submit', 'Cadastrar'))
+        self.fields['nome'].required = True
+        self.fields['sexo'].required = True
+        self.fields['rg'].required = True
+        self.fields['cpf'].required = True
+        self.fields['telefone'].required = True
+        self.fields['email'].required = True

@@ -1,0 +1,18 @@
+{% extends 'sgp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <h2 class="text-center">Editar Servidor</h2>
+    <div class="container mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="border p-4">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit" class="btn btn-primary">Salvar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

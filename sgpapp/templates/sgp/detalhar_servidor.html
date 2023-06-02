@@ -1,0 +1,129 @@
+{% extends 'sgp/base.html' %}
+
+{% block content %}
+    <h2 class="text-center">Detalhes do Servidor</h2>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Informações Pessoais</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="nome">Nome:</label>
+                            <div id="nome">{{ servidor.nome }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="sexo">Sexo:</label>
+                            <div id="sexo">{{ servidor.get_sexo_display }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="rg">RG:</label>
+                            <div id="rg">{{ servidor.rg }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="cpf">CPF:</label>
+                            <div id="cpf">{{ servidor.cpf }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="telefone">Telefone:</label>
+                            <div id="telefone">{{ servidor.telefone }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <div id="email">{{ servidor.email }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h5 class="card-title">Endereço</h5>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="logradouro">Logradouro:</label>
+                            <div id="logradouro">{{ servidor.logradouro }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="numero">Número:</label>
+                            <div id="numero">{{ servidor.numero }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="zona">Zona:</label>
+                            <div id="zona">{{ servidor.zona }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="bairro">Bairro:</label>
+                            <div id="bairro">{{ servidor.bairro }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="estado">Estado:</label>
+                            <div id="estado">{{ servidor.estado }}</div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="municipio">Município:</label>
+                            <div id="municipio">{{ servidor.municipio }}</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="cep">CEP:</label>
+                            <div id="cep">{{ servidor.cep }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container mt-3">
+        <button class="btn btn-primary" onclick="gerarPDF()">Gerar PDF</button>
+        <a href="{% url 'lista_servidores' %}" class="btn btn-secondary">Voltar</a>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        function gerarPDF() {
+            const element = document.querySelector('.container');
+
+            html2pdf()
+                .set({
+                    margin: 0.5,
+                    filename: 'detalhes_servidor.pdf',
+                    image: { type: 'jpeg', quality: 0.98 },
+                    html2canvas: { scale: 4 },
+                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                })
+                .from(element)
+                .save();
+        }
+    </script>
+{% endblock %}

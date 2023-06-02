@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ficha do Servidor</title>
+    <style>
+        /* Seus estilos CSS aqui */
+    </style>
+</head>
+<body>
+    <h2 class="text-center">Ficha do Servidor</h2>
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Informações Pessoais</h5>
+                <table>
+                    <tr>
+                        <td><strong>Nome:</strong></td>
+                        <td>{{ servidor.nome }}</td>
+                        <td><strong>Sexo:</strong></td>
+                        <td>{{ servidor.sexo }}</td>
+                        <td><strong>RG:</strong></td>
+                        <td>{{ servidor.rg }}</td>
+                        <td><strong>CPF:</strong></td>
+                        <td>{{ servidor.cpf }}</td>
+                        <td><strong>Telefone:</strong></td>
+                        <td>{{ servidor.telefone }}</td>
+                    </tr>
+                </table>
+                <br>
+                <h5 class="card-title">Endereço</h5>
+                <table>
+                    <tr>
+                        <td><strong>Logradouro:</strong></td>
+                        <td>{{ servidor.logradouro }}</td>
+                        <td><strong>Número:</strong></td>
+                        <td>{{ servidor.numero }}</td>
+                        <td><strong>Zona:</strong></td>
+                        <td>{{ servidor.zona }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bairro:</strong></td>
+                        <td>{{ servidor.bairro }}</td>
+                        <td><strong>Estado:</strong></td>
+                        <td>{{ servidor.estado }}</td>
+                        <td><strong>Município:</strong></td>
+                        <td>{{ servidor.municipio }}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>CEP:</strong></td>
+                        <td>{{ servidor.cep }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

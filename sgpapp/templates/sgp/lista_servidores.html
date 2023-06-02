@@ -1,0 +1,45 @@
+{% extends 'sgp/base.html' %}
+
+{% block content %}
+    <h2 class="text-center">Lista de Servidores</h2>
+    <div class="container mt-5">
+        <table class="table">
+            <!-- Cabeçalho da tabela -->
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sexo</th>
+                    <th>RG</th>
+                    <th>CPF</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Corpo da tabela -->
+                {% for servidor in servidores %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ servidor.nome }}</td>
+                        <td>{{ servidor.get_sexo_display }}</td>
+                        <td>{{ servidor.rg }}</td>
+                        <td>{{ servidor.cpf }}</td>
+                        <td>{{ servidor.telefone }}</td>
+                        <td>{{ servidor.email }}</td>
+                        <td>
+                            <a href="{% url 'editar_servidor' servidor.id %}" class="btn btn-primary">Editar</a>
+                            <a href="{% url 'apagar_servidor' servidor.id %}" class="btn btn-danger">Apagar</a>
+                            <a href="{% url 'detalhar_servidor' servidor.id %}" class="btn btn-info">Detalhar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                <!-- Rodapé da tabela -->
+                <tr>
+                    <td colspan="8" class="text-end">Total de registros: {{ total_registros }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

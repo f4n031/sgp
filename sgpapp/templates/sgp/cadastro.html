@@ -1,0 +1,126 @@
+{% extends 'sgp/base.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <div class="container d-flex justify-content-center">
+        <div class="col-md-6">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="border border-dark p-2 container text-center bg-dark text-white">
+                    <h5>Informações Pessoais</h5>
+                </div>
+                <div class="border border-dark p-2">
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            {{ form.nome|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            {{ form.sexo|as_crispy_field }}
+                        </div>
+                        <div class="col-md-4">
+                            {{ form.rg|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            {{ form.cpf|as_crispy_field }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.telefone|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.email|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="border border-dark p-2 container text-center bg-dark text-white">
+                    <h5>Endereço</h5>
+                </div>
+                <div class="border border-dark p-2">
+                    <div class="form-group">
+                        {{ form.logradouro|as_crispy_field }}
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-4">
+                            {{ form.numero|as_crispy_field }}
+                        </div>
+                        <div class="col-md-4">
+                            {{ form.zona|as_crispy_field }}
+                        </div>
+                        <div class="col-md-4">
+                            {{ form.bairro|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-6">
+                            {{ form.estado|as_crispy_field }}
+                        </div>
+                        <div class="col-md-6">
+                            {{ form.municipio|as_crispy_field }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.cep|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="border border-dark p-2 container text-center bg-dark text-white">
+                    <h5>Formação</h5>
+                </div>
+                <div class="border border-dark p-2">
+                    <div class="form-group">
+                        {{ form.escolaridade|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.formacao|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.instituicao|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="border border-dark p-2 container text-center bg-dark text-white">
+                    <h5>Lotação</h5>
+                </div>
+                <div class="border border-dark p-2">
+                    <div class="form-group">
+                        {{ form.cargo|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.funcao|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.vinculo|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.local|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.obs|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.lotacao|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="border border-dark p-2 container text-center bg-dark text-white">
+                    <h5>Dados Bancários</h5>
+                </div>
+                <div class="border border-dark p-2">
+                    <div class="form-group">
+                        {{ form.banco|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.agencia|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.conta|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="text-center mt-4">
+                    <button class="btn btn-primary" type="submit">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
