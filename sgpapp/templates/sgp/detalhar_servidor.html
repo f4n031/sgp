@@ -5,105 +5,129 @@
     <div class="container mt-5">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Informações Pessoais</h5>
+                <h5 class="card-title"><strong>Dados Pessoais</strong></h5>
+                <hr>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="nome">Nome:</label>
-                            <div id="nome">{{ servidor.nome }}</div>
+                            <label for="nome"><strong>Nome:</strong> {{ servidor.nome }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="sexo"><strong>Sexo:</strong> {{ servidor.get_sexo_display }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="rg"><strong>RG:</strong> {{ servidor.rg }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="cpf"><strong>CPF:</strong> {{ servidor.cpf }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefone"><strong>Telefone:</strong> {{ servidor.telefone }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="email"><strong>Email:</strong> {{ servidor.email }}</label>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="sexo">Sexo:</label>
-                            <div id="sexo">{{ servidor.get_sexo_display }}</div>
+                            <label for="logradouro"><strong>Logradouro:</strong> {{ servidor.logradouro }}</label>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="rg">RG:</label>
-                            <div id="rg">{{ servidor.rg }}</div>
+                            <label for="numero"><strong>Número:</strong> {{ servidor.numero }}</label>
                         </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="cpf">CPF:</label>
-                            <div id="cpf">{{ servidor.cpf }}</div>
+                            <label for="zona"><strong>Zona:</strong> {{ servidor.get_zona_display }}</label>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="telefone">Telefone:</label>
-                            <div id="telefone">{{ servidor.telefone }}</div>
+                            <label for="bairro"><strong>Bairro/Vila:</strong> {{ servidor.bairro }}</label>
                         </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="email">Email:</label>
-                            <div id="email">{{ servidor.email }}</div>
+                            <label for="estado"><strong>Estado:</strong> {{ servidor.estado }}</label>
                         </div>
-                    </div>
-                </div>
-
-                <h5 class="card-title">Endereço</h5>
-                <div class="row">
-                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="logradouro">Logradouro:</label>
-                            <div id="logradouro">{{ servidor.logradouro }}</div>
+                            <label for="municipio"><strong>Município:</strong> {{ servidor.municipio }}</label>
                         </div>
-                    </div>
-                    <div class="col-md-6">
                         <div class="form-group">
-                            <label for="numero">Número:</label>
-                            <div id="numero">{{ servidor.numero }}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="zona">Zona:</label>
-                            <div id="zona">{{ servidor.zona }}</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="bairro">Bairro:</label>
-                            <div id="bairro">{{ servidor.bairro }}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="estado">Estado:</label>
-                            <div id="estado">{{ servidor.estado }}</div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="municipio">Município:</label>
-                            <div id="municipio">{{ servidor.municipio }}</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="cep">CEP:</label>
-                            <div id="cep">{{ servidor.cep }}</div>
+                            <label for="cep"><strong>CEP:</strong> {{ servidor.cep }}</label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <br>
+    <div class="container mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Formação</strong></h5>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="escolaridade"><strong>Escolaridade:</strong> {{ servidor.get_escolaridade_display }}
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="formacao"><strong>Formação:</strong> {{ servidor.formacao }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="instituicao"><strong>Instituição:</strong> {{ servidor.instituicao }}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Lotação</strong></h5>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="cargo"><strong>Cargo:</strong> {{ servidor.cargo }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="funcao"><strong>Função:</strong> {{ servidor.funcao }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="vinculo"><strong>Vínculo:</strong> {{ servidor.get_vinculo_display }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="local"><strong>Local:</strong> {{ servidor.get_local_display }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="obs"><strong>Observações:</strong> {{ servidor.obs }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="lotacao"><strong>Lotação:</strong> {{ servidor.lotacao }}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title"><strong>Dados Bancários</strong></h5>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="banco"><strong>Banco:</strong> {{ servidor.banco }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="agencia"><strong>Agência:</strong> {{ servidor.agencia }}</label>
+                        </div>
+                        <div class="form-group">
+                            <label for="conta"><strong>Conta:</strong> {{ servidor.conta }}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container mt-3">
         <button class="btn btn-primary" onclick="gerarPDF()">Gerar PDF</button>
         <a href="{% url 'lista_servidores' %}" class="btn btn-secondary">Voltar</a>
@@ -118,9 +142,9 @@
                 .set({
                     margin: 0.5,
                     filename: 'detalhes_servidor.pdf',
-                    image: { type: 'jpeg', quality: 0.98 },
-                    html2canvas: { scale: 4 },
-                    jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                    image: {type: 'jpeg', quality: 0.98},
+                    html2canvas: {scale: 4},
+                    jsPDF: {unit: 'in', format: 'letter', orientation: 'portrait'}
                 })
                 .from(element)
                 .save();

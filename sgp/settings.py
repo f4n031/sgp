@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "crispy_forms",
     "crispy_bootstrap5",
     'localflavor',
+    'cpf_field',
 ]
 LOCALFLAVOR = [
     'localflavor.br',

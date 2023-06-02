@@ -1,3 +1,4 @@
+<title>Cadastro de Servidores</title>
 {% extends 'sgp/base.html' %}
 
 {% load crispy_forms_tags %}
@@ -8,6 +9,7 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="border border-dark p-2 container text-center bg-dark text-white">
+
                     <h5>Informações Pessoais</h5>
                 </div>
                 <div class="border border-dark p-2">
@@ -23,20 +25,23 @@
                         <div class="col-md-4">
                             {{ form.rg|as_crispy_field }}
                         </div>
+                        <div class="col-md-4">
+                            <label for="{{ form.cpf.id_for_label }}">CPF:</label>
+                            <input type="text" name="{{ form.cpf.name }}" id="{{ form.cpf.id_for_label }}"
+                                   class="form-control" maxlength="14" oninput="formatarCPF(this)" required>
+                        </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-6">
-                            {{ form.cpf|as_crispy_field }}
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-4">
                             {{ form.telefone|as_crispy_field }}
                         </div>
-                    </div>
-                    <div class="form-group">
-                        {{ form.email|as_crispy_field }}
+                        <div class="col-md-8">
+                            {{ form.email|as_crispy_field }}
+                        </div>
                     </div>
                 </div>
                 <div class="border border-dark p-2 container text-center bg-dark text-white">
+
                     <h5>Endereço</h5>
                 </div>
                 <div class="border border-dark p-2">
@@ -44,29 +49,33 @@
                         {{ form.logradouro|as_crispy_field }}
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-4">
+                        <div class="col-md-3 ">
                             {{ form.numero|as_crispy_field }}
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-5">
                             {{ form.zona|as_crispy_field }}
-                        </div>
-                        <div class="col-md-4">
-                            {{ form.bairro|as_crispy_field }}
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-6">
-                            {{ form.estado|as_crispy_field }}
-                        </div>
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             {{ form.municipio|as_crispy_field }}
                         </div>
+                        <div class="col-md-4">
+                            {{ form.estado|as_crispy_field }}
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group row">
+                        <div class="col-md-4">
                         {{ form.cep|as_crispy_field }}
                     </div>
+                    <div class="col-md-8">
+                        {{ form.bairro|as_crispy_field }}
+                    </div>
+                </div>
+
                 </div>
                 <div class="border border-dark p-2 container text-center bg-dark text-white">
+
                     <h5>Formação</h5>
                 </div>
                 <div class="border border-dark p-2">
@@ -123,4 +132,19 @@
             </form>
         </div>
     </div>
+
+    <script>
+        function formatarCPF(campo) {
+            var cpf = campo.value.replace(/\D/g, '');
+
+            if (cpf.length > 3 && cpf.length <= 6)
+                cpf = cpf.replace(/^(\d{3})(\d)/, '$1.$2');
+            else if (cpf.length > 6 && cpf.length <= 9)
+                cpf = cpf.replace(/^(\d{3})(\d{3})(\d)/, '$1.$2.$3');
+            else if (cpf.length > 9)
+                cpf = cpf.replace(/^(\d{3})(\d{3})(\d{3})(\d)/, '$1.$2.$3-$4');
+
+            campo.value = cpf;
+        }
+    </script>
 {% endblock %}
