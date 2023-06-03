@@ -27,11 +27,13 @@ class CadastroForm(forms.ModelForm):
             'funcao': 'Função',
             'vinculo': 'Vínculo',
             'local': 'Local',
-            'obs': 'Observações',
-            'lotacao': 'Lotação',
             'banco': 'Banco',
             'agencia': 'Agência',
-            'conta': 'Conta'
+            'conta': 'Conta',
+            'data_admissao': 'Data de Admissão',
+            'data_inicio': 'Data de Início',
+            'data_saida': 'Data de Saída',
+            'data_nascimento': 'Data de Nascimento',
         }
 
     def __init__(self, *args, **kwargs):
@@ -43,14 +45,3 @@ class CadastroForm(forms.ModelForm):
         self.fields['telefone'].required = True
         self.fields['email'].required = True
         self.fields['zona'].required = False
-        self.fields['zona'].required = False
-
-
-def save(self, *args, **kwargs):
-    # definir o valor completo do campo vinculo_completo
-    if self.vinculo == 'E':
-        self.vinculo_completo = 'Efetivo'
-    elif self.vinculo == 'T':
-        self.vinculo_completo = 'Temporário'
-
-    super().save(*args, **kwargs)

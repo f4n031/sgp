@@ -9,7 +9,6 @@
             <form method="post" enctype="multipart/form-data">
                 {% csrf_token %}
                 <div class="border border-dark p-2 container text-center bg-dark text-white">
-
                     <h5>Informações Pessoais</h5>
                 </div>
                 <div class="border border-dark p-2">
@@ -38,10 +37,12 @@
                         <div class="col-md-8">
                             {{ form.email|as_crispy_field }}
                         </div>
+                    <div class="form-group">
+                        {{ form.data_nascimento|as_crispy_field }}
+                    </div>
                     </div>
                 </div>
                 <div class="border border-dark p-2 container text-center bg-dark text-white">
-
                     <h5>Endereço</h5>
                 </div>
                 <div class="border border-dark p-2">
@@ -49,11 +50,14 @@
                         {{ form.logradouro|as_crispy_field }}
                     </div>
                     <div class="form-group row">
-                        <div class="col-md-3 ">
+                        <div class="col-md-3">
                             {{ form.numero|as_crispy_field }}
                         </div>
                         <div class="col-md-5">
                             {{ form.zona|as_crispy_field }}
+                        </div>
+                        <div class="col-md-4">
+                            {{ form.cep|as_crispy_field }}
                         </div>
                     </div>
                     <div class="form-group row">
@@ -64,18 +68,11 @@
                             {{ form.estado|as_crispy_field }}
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <div class="col-md-4">
-                        {{ form.cep|as_crispy_field }}
-                    </div>
-                    <div class="col-md-8">
+                    <div class="form-group">
                         {{ form.bairro|as_crispy_field }}
                     </div>
                 </div>
-
-                </div>
                 <div class="border border-dark p-2 container text-center bg-dark text-white">
-
                     <h5>Formação</h5>
                 </div>
                 <div class="border border-dark p-2">
@@ -105,12 +102,6 @@
                     <div class="form-group">
                         {{ form.local|as_crispy_field }}
                     </div>
-                    <div class="form-group">
-                        {{ form.obs|as_crispy_field }}
-                    </div>
-                    <div class="form-group">
-                        {{ form.lotacao|as_crispy_field }}
-                    </div>
                 </div>
                 <div class="border border-dark p-2 container text-center bg-dark text-white">
                     <h5>Dados Bancários</h5>
@@ -124,6 +115,20 @@
                     </div>
                     <div class="form-group">
                         {{ form.conta|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="border border-dark p-2 container text-center bg-dark text-white">
+                    <h5>Informações Adicionais</h5>
+                </div>
+                <div class="border border-dark p-2">
+                    <div class="form-group">
+                        {{ form.data_admissao|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.data_inicio|as_crispy_field }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.data_saida|as_crispy_field }}
                     </div>
                 </div>
                 <div class="text-center mt-4">

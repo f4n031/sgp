@@ -3,7 +3,7 @@
 
 {% block content %}
     <h2 class="text-center">Lista de Servidores</h2>
-    <div class="container mt-5 small">
+    <div class="container mt-5">
         <table class="table">
             <!-- Cabeçalho da tabela -->
             <thead>
@@ -23,7 +23,7 @@
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <td class="small">{{ servidor.nome }}</td>
-                        <td class="small">{{ servidor.vinculo }}</td>
+                        <td class="small">{{ servidor.get_vinculo_display }}</td>
                         <td class="small">{{ servidor.cargo }}</td>
                         <td class="small">{{ servidor.funcao }}</td>
                         <td class="small">{{ servidor.get_escolaridade_display }}</td>

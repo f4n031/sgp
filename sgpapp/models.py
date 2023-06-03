@@ -13,6 +13,7 @@ class Cadastro(models.Model):
     cpf = models.CharField(max_length=14)
     telefone = models.CharField(max_length=20)
     email = models.EmailField()
+    data_nascimento = models.DateField(null=True, blank=True)
 
     ZONA_CHOICES = (
         ('U', 'Zona Urbana'),
@@ -61,13 +62,16 @@ class Cadastro(models.Model):
     funcao = models.CharField(max_length=50, blank=True)
     vinculo = models.CharField(max_length=15, choices=VINCULO_CHOICES)
     local = models.CharField(max_length=10, choices=LOCAL_CHOICES)
-    obs = models.TextField(blank=True)
-    lotacao = models.CharField(max_length=100, blank=True)
 
     # Dados Bancários
     banco = models.CharField(max_length=50, blank=True)
     agencia = models.CharField(max_length=10, blank=True)
     conta = models.CharField(max_length=20, blank=True)
+
+    # Informações Adicionais
+    data_admissao = models.DateField(null=True, blank=True)
+    data_inicio = models.DateField(null=True, blank=True)
+    data_saida = models.DateField(null=True, blank=True)
 
     def __str__(self):
         return self.nome
